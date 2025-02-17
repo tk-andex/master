@@ -1,7 +1,54 @@
+<!DOCTYPE html>
 <html>
-	<head>My CloudFront Test</head>
-		<body>
-			<p>My text content goes here.</p>
-			<p><img src="https://elasticbeanstalk-ap-northeast-1-699475933447.s3.ap-northeast-1.amazonaws.com/object/sample.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=ASIA2FXADXEDZ7Y2CMFD%2F20241119%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20241119T011801Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjENH%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLW5vcnRoZWFzdC0xIkgwRgIhAOZGICiJSpIDb3ckyxQ5vo%2FAwf72arG%2B7DTC4CNavA%2FQAiEAmNA54abow0%2FlSF3hycYLW7BTogJ8Aqic62gK5PyakJsq7AIIahAAGgw2OTk0NzU5MzM0NDciDORxqgts49M3qyawWyrJAg4HlXe1DCkQX7Wz9byAxQumphWKUgN99KmctJ4T0Ak5mvMRFKbSGdoqc48jpk0G8rbgA%2FjlR7RpcQ3Hi2qyUsM41h3PyAOq%2BtuDQE8p0WPfM%2Bo2oBqu0T2wI8ZtHiePPxrivoTqOsqgIxalPJTVmglOqiSzIMUfLF5CjWd%2F3AXZ13ZpqRRMOzIt75DEljjprd2sVAARpOHH3rG27%2BVe5hFudUFScfDWI408DaDNWOM64DLvpP6kLyWokQQC%2B7MZgJ22TAi1eb%2Fz1cBFirjBOXbSNpJv0%2BE7Id7mPg7DJRB2diXxoTuoYlIemVJBIjP%2Bk4%2BiNvlJa10taODQ0EoV1qk6cpWO6Qja64HoEqS%2F3ebNLbQepM%2FQHBhptumqlsB%2B1%2BzJ11i%2FQJWwL5bZV7%2BiCXom960zv%2FdrMTvjNmmYgDZgvVS9P0kRo%2B1SMMi477kGOrICllon5IZkPfazqecBaObE1Z1HNArLjHOj6IxuRHgz1C9xuVKPTn81lL56oxVwZvFo%2F7jw2yZMRQZvQWblk%2B2KRYGquaDVxEfHRrajkbnGLCtbHrMBN2jRKhTRffQudWKvzeAUKL7B8fv9Oc8TXo2%2Bpo6VfVt%2B%2FHvMhyYLQMOQdHavHLQrskYLJ7sLM7DZx7iw2R%2FJoHdplCzwrSRu5qF95losVyLvqtu4jRTAjdA%2Fv4x17T16NsSH4WVU4Nhl8Lqv9%2BukUe42M9fkGRSHPYGx92kEppsBwXnFtV9t0%2B3IP5oaz2oOML2%2Fki1isWDa4lXkCkxpotrlPmCzq9PrcjBaLDG%2BscPvFbWIatw%2Bf8pJFIuuGIiGsWkTiBdjHtoo5QB4Q03RJTHeyAjAEQUjs2m8EwBZ&X-Amz-Signature=a20d1426a2dab701515ff82a4859b2938ac854bb6b9d1dc1b1613874972b936f&X-Amz-SignedHeaders=host&response-content-disposition=inline" alt="my test image"
-		</body>
+<head>
+<meta charset="UTF-8">
+<title>HTMLファイルからPOSTでJSONデータを送信する</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<script type="text/javascript">
+    $(function(){
+        $("#response").html("Response Values");
+
+        $("#button").click( function(){
+            // ここのURLはAPIのデプロイ時に表示されるURL（後述）に差し替える
+            var url = "https://xxxxxx.execute-api.ap-northeast-1.amazonaws.com/dev";
+                var JSONdata = {
+                    "key1": $("#text").val()
+                };
+
+            alert(JSON.stringify(JSONdata));
+
+            $.ajax({
+                type : 'post',
+                url : url,
+                data : JSON.stringify(JSONdata),
+                contentType: 'application/json',
+                dataType : 'json',
+                scriptCharset: 'utf-8',
+                success : function(data) {
+
+                    // Success
+                    alert("success");
+                    alert(JSON.stringify(data));
+                    $("#response").html(JSON.stringify(data));
+                },
+                error : function(data) {
+
+                    // Error
+                    alert("error");
+                    alert(JSON.stringify(data));
+                    $("#response").html(JSON.stringify(data));
+                }
+            });
+        })
+    })
+</script>
+
+</head>
+<body>
+    <h1>HTMLファイルからPOSTでJSONデータを送信する</h1>
+    <p>入力テキスト: <input type="text" id="text" size="30" placeholder="テキストを入力してください"></p>
+    <p><button id="button" type="button">送信</button></p>
+    <textarea id="response" cols=120 rows=10 disabled></textarea>
+</body>
 </html>
