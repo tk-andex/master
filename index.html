@@ -2,44 +2,24 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>HTMLファイルからPOSTでJSONデータを送信する</title>
+<title>REST_APIテストページ</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(function(){
-        $("#response").html("Response Values");
+        async function getData() {
+    const url = "https://example.org/https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API";
+    try {
+        const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error(`レスポンスステータス: ${response.status}`);
+    }
 
-        $("#button").click( function(){
-            // ここのURLはAPIのデプロイ時に表示されるURL（後述）に差し替える
-            var url = "https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API";
-                var JSONdata = {
-                    "key1": $("#text").val()
-                };
-
-            alert(JSON.stringify(JSONdata));
-
-            $.ajax({
-                type : 'post',
-                url : url,
-                data : JSON.stringify(JSONdata),
-                contentType: 'application/json',
-                dataType : 'json',
-                scriptCharset: 'utf-8',
-                success : function(data) {
-
-                    // Success
-                    alert("success");
-                    alert(JSON.stringify(data));
-                    $("#response").html(JSON.stringify(data));
-                },
-                error : function(data) {
-
-                    // Error
-                    alert("error");
-                    alert(JSON.stringify(data));
-                    $("#response").html(JSON.stringify(data));
-                }
-            });
-        })
+    const json = await response.json();
+    console.log(json);
+            } catch (error) {
+            console.error(error.message);
+            }
+        }
     })
 </script>
 </head>
