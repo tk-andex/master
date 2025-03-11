@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>REST_APIテストページ</title>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script type="text/javascript">
-    $(function(){
-        async function getData() {
-        const url = "https://example.org/https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API";
-    try {
-        const response = await fetch(url);
-    if (!response.ok) {
-        throw new Error(`レスポンスステータス: ${response.status}`);
-    }
-
-    const json = await response.json();
-    console.log(json);
-            } catch (error) {
-            console.error(error.message);
-            }
-        }
-    })
-</script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テストフォーム</title>
 </head>
-<body> 
-    <h1>REST APIテストページ</h1>
-    <p><button id="button" type="button">送信</button></p>
-    <textarea id="response" cols=120 rows=10 disabled></textarea>
+<body>
+    <h1>サンプルフォームです。</h1>
 </body>
+</html>
 </html>
