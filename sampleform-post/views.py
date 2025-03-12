@@ -1,6 +1,3 @@
-from flask import Flask
-app = Flask(__name__)
-
 @app.route('/sampleform-post', methods=['POST'])
 def sample_form_temp():
     print('POSTデータ受け取ったので処理します')
