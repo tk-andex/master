@@ -1,0 +1,11 @@
+{
+    "section1":{
+        "key":"リンゴ",
+        "number": 1
+    },
+
+    "section2":{
+        "key":"みかん",
+        "number": 2
+    }
+}
