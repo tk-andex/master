@@ -1,0 +1,10 @@
+HTTP/1.1 400 Bad Request
+Date: Fri, 14 Mar 2025 09:04:41 GMT
+Content-Type: application/json
+Content-Length: 277
+Connection: keep-alive
+x-amzn-RequestId: b9b445fd-1464-4e88-810c-a8734708f069
+x-amzn-ErrorType: BadRequestException
+x-amz-apigw-id: HaKejF9JNjMECwA=
+
+{"message": "Could not parse request body into json: Could not parse payload into json: Unexpected character (\'e\' (code 101)) in numeric value: expected digit (0-9) to follow minus sign, for valid numeric value\n at [Source: (byte[])\"-encodedCommand\"; line: 1, column: 3]"}

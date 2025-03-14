@@ -1,13 +1,17 @@
+from pickle import FALSE
 import requests
 import json
 
 # 送信先URL
 # url = "http://127.0.0.1:5000/hello"
-url = "https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API/hello"
+url = "https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API/"
 
 # 送信するJSONデータ
 data = {
-    "message": "アクセスが成功しました！"
+    "queryStringParameters": {
+        "param1": "Hello",
+        "param2": "こんにちは"
+    }
 }
 
 # ヘッダーの設定
