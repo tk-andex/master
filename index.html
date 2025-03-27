@@ -2,6 +2,50 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON POST送信</title>
+</head>
+<body>
+    <h2>JSONデータを送信</h2>
+    <button id="sendData">送信</button>
+
+    <script>
+        document.getElementById('sendData').addEventListener('click', () => {
+            // 送信するJSONデータ
+            const json_data = {
+                operation: "POST",
+                data: {
+                    en: "Hello",
+                    jp: "こんにちは"
+                }
+            };
+
+            // `fetch` を使ってPOSTリクエストを送信
+            fetch('https://ap-northeast-1ico7en9y0.auth.ap-northeast-1.amazoncognito.com/login/continue?client_id=5m669rof0n0mkph15n3fh3v4pe&redirect_uri=https%3A%2F%2Fd84l1y8p4kdic.cloudfront.net&response_type=code&scope=email+openid+phone', {  // 実際のエンドポイントに置き換える
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(json_data)
+            })
+            .then(response => response.json())  // JSON形式でレスポンスを取得
+            .then(result => console.log('成功:', result))
+            .catch(error => console.error('エラー:', error));
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>テストフォーム</title>
@@ -14,4 +58,4 @@
     </form>    
 </body>
 </html>
-</html>
+</html> -->
