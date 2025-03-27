@@ -13,7 +13,6 @@
         document.getElementById('sendData').addEventListener('click', () => {
             // 送信するJSONデータ
             const json_data = {
-                client_id: "5m669rof0n0mkph15n3fh3v4pe",
                 operation: "POST",
                 data: {
                     en: "Hello",
@@ -22,7 +21,7 @@
             };
 
             // `fetch` を使ってPOSTリクエストを送信
-            fetch('https://ap-northeast-1ico7en9y0.auth.ap-northeast-1.amazoncognito.com/oauth2/authorize', {  // 実際のエンドポイントに置き換える
+            fetch('https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API?client_id=5m669rof0n0mkph15n3fh3v4pe', {  // 実際のエンドポイントに置き換える
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
