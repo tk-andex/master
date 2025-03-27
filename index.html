@@ -21,7 +21,7 @@
             };
 
             // `fetch` を使ってPOSTリクエストを送信
-            fetch('https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API?client_id=5m669rof0n0mkph15n3fh3v4pe', {  // 実際のエンドポイントに置き換える
+            fetch('https://ap-northeast-1ico7en9y0.auth.ap-northeast-1.amazoncognito.com/login/continue?client_id=5m669rof0n0mkph15n3fh3v4pe&redirect_uri=https%3A%2F%2Fd84l1y8p4kdic.cloudfront.net&response_type=code&scope=email+openid+phone', {  // 実際のエンドポイントに置き換える
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
