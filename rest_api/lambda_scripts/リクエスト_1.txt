@@ -1,0 +1,52 @@
+import json
+
+def lambda_handler(event, context):
+    # イベントの内容をログに出力
+    print(f"Event: {json.dumps(event)}")
+
+    # HTTPメソッドの確認
+    http_method = event.get('httpMethod')
+    if http_method == 'POST':
+        # リクエストボディの取得
+        body = event.get('body')
+        
+        # ボディがJSON形式の場合はパース
+        if body:
+            try:
+                body_data = json.loads(body)
+                print(f"Request Body: {body_data}")
+                
+                # クエリパラメータの取得
+                query_params = event.get('queryStringParameters')
+                print(f"Query Parameters: {query_params}")
+                
+                # パスパラメータの取得
+                path_params = event.get('pathParameters')
+                print(f"Path Parameters: {path_params}")
+                
+                # レスポンスを返す
+                response = {
+                    "statusCode": 200,
+                    "body": json.dumps({
+                        "message": "Data received successfully",
+                        "received_body": body_data,
+                        "query_parameters": query_params,
+                        "path_parameters": path_params
+                    })
+                }
+                return response
+            except json.JSONDecodeError:
+                return {
+                    "statusCode": 400,
+                    "body": json.dumps({"message": "Invalid JSON format in body"})
+                }
+        else:
+            return {
+                "statusCode": 400,
+                "body": json.dumps({"message": "No body in request"})
+            }
+    else:
+        return {
+            "statusCode": 405,
+            "body": json.dumps({"message": "Method Not Allowed"})
+        }

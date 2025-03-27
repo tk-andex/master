@@ -1,0 +1,59 @@
+import json
+from http import HTTPStatus
+
+USERS = {
+    'railgun': {
+        'name': 'Mikoto Misaka',
+        'age': 14,
+        'city': 'Gakuen-toshi',
+        'country': 'Japan'
+    },
+    'imagine-breaker': {
+        'name': 'Touma Kamijo',
+        'age': 15,
+        'city': 'Gakuen-toshi',
+        'country': 'Japan'
+    },
+    'index': {
+        'name': 'Index-Librorum-Prohibitorum',
+        'age': 14,
+        'city': 'London?',
+        'country': 'United Kingdom'
+    }
+}
+
+def lambda_handler(event: dict, context):
+    http_method = event['httpMethod']
+    resource = event['resource']
+    
+    response_status = None
+    
+    if http_method == 'GET':
+        response_body = {
+            'method': 'get information',
+            'data': None
+        }
+        if resource == '/hello-world':
+            response_body['data'] = USERS
+            response_status = HTTPStatus.OK
+
+        elif resource == '/hello-world/{id}':
+            response_body['data'] = USERS.get(event['pathParameters']['id'])
+            if not response_body['data']:
+                response_status = HTTPStatus.NOT_FOUND
+            else:
+                response_status = HTTPStatus.OK
+    
+    elif http_method == 'POST':
+        response_body = {
+            'method': 'insert information',
+            'data': json.loads(event['body']) if event['body'] else None
+        }
+        response_status = HTTPStatus.CREATED
+        
+        # Do nothing (it's sample)
+    
+    return {
+        'statusCode': response_status,
+        'body': json.dumps(response_body)
+    }
