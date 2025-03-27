@@ -10,6 +10,37 @@
     <button id="sendData">送信</button>
 
     <script>
+        // import { API } from 'aws-amplify';
+
+        // const postData = async () => {
+        //     const path = 'https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';  // API Gatewayのエンドポイントパス
+        //     const myInit = {  
+        //         body: { // POSTリクエストのデータ
+        //             key1: 'value1',
+        //             key2: 'value2'
+        //         },
+        //         headers: { 
+        //             Authorization: `Bearer ${yourJWTToken}`,  // 必要なヘッダー
+        //         }
+        //     };
+
+        //     try {
+        //         const response = await API.post('yourApiName', path, myInit);
+        //         console.log('Response:', response);
+        //     } catch (error) {
+        //         console.error('Error:', error);
+        //     }
+        // };
+
+        // postData();
+
+
+
+
+
+
+
+
         document.getElementById('sendData').addEventListener('click', () => {
             // 送信するJSONデータ
             const json_data = {
