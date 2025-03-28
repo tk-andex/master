@@ -12,7 +12,7 @@
     <script>
         document.getElementById('sendData').addEventListener('click', () => {
             const url ='https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
-            const token = "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.MZeSljyYa8PAEN7AL7nndltnhrJpZUPjHmTS0U9b184Zjp_6UPdTGgllq-c2gvIE_Y8kMFmjLmP0ZrebzkbvQzhcakgogsZrNUR2c7ZIE58pHZKMe2_eCf-QVERAm5s8Lg1G5JacKOSgmngRcBUn8Vf8yOpCWVxbWZc_322HfgJwfhOvDEWfndVS3kfxwWTvNm6PQKYl-pTaF0P2cZNCoIHiSzcjl3Qh95rZyn2Mu2R2BWV2_qvVoT1CbSs6C_iv6fVgBdREwwwnUuVtKKVSciZLak9lO-1k3_2wAiN4lwzqMfJN1gEPw3ifUVi6JtrZEN4xv8MIKdUReyxzBpG3mg.KgpoOjdWXODdsICh.zL97moIZPygF1-0szseKkTLFuSQ0Z3FLlWxQorro4IC4cWMPB7YjDf15sLhmI913IDndEhqfZQJobhIbllpDrOfTPMCI-7-nIxkgk79xQcTuRrEInjAf-RJIzH-ZFbWy4X5CASFSJ1WHNTBICLtZvjAZkPFTiNC-bZYTn74y_PJOixcHV7nJavySEcSio6FfL7rA6DoZWtTO7kDtNVF_W1IKN92KrbvcpFyfHB3i7LqGw7ifcmVns0J4Uu92x-MJf0HErAgbVFRgQtZ2j03KBwGI8FMuJTd4pWh4Z7IJRMhdJSrCPaxVu8Z-kaNj9_6KCSoaoaW81fjr4xcKp_3scI1vzUsOV-CX0YGIcsxSJ_FaWRedsq5p6IJeqKf1cUL5dzEYE3ByRtUwg8csy8f-a4dJUyj5qxzWIbgQlED64vQYuemanf5t866Lg8Mo_5__p3nyCSbh4_2fySSEeB3m5TEEdqMLEJGN0o3JgqJgEZapjoXP6Ub2Bprb3-R1MJkz9aHNMDp2-rE1iwUNmzHNSVmFI0OtcGVd_1kml4v6DV_H8tgpWAhQAP0QyV0mFrZY8rb-A8ABCrE1mg3OrDybXca3hQKD3tNNEE1sMXgtgtebX0R49dmWDAUzw28Ns_2C54fp42qjOfN2HzzuQa7ZHSD2DxjpVzSrI7pTyfe2CtiqmEilxbqtbpWDuMGpNxAXmHmMiCi1VfCIUHLwbKvBby6jbsPl88ZdAvAm2yEucrLo9UfWXQ-HfdMQ3iEgDYl7NlLEeM41STc6DdojGzI7NID64NclbaE1iI9flRAHRmvY2lfg2xzdr7RpIpoqWgHkaOOkk2f3OM5gYOEpzGU4DczU04UW_m8yvRRe2Z1zKJS8TMNVr3BsStrwlOpUng0Sp4i8tpZyPLojQd1xDbHaFMZ4JFrFlYO0VjmH253MEVCYrGO-g6ce4wjJ9iiVHFwCq75e4pUmKZ12gxDWxXDAJIAToK1BOKHR3YoMv0ObCZpiX2ZQEPPV05wvD1zNJYsZktlWso6HFLvK0aG81DYbgeJMSm90w2lLsth4YswYGnonqDaUQ2x1bVO3yfwUXpXQSU-PbM0Z4rjOQwpRpI_1zB3E6Bje4y3GFh0y9xCr2J3uWTdKvYRlrB7LLTQAI2ygfQxQ5A5g0uBQCHuwZI3EZvAPQUgg7K1FRaK_vDbPSkFWMAGtJ0SOLYYbsPVApORkkfAIT34qSroh_mEYT-ZCb5gXJj-w5s8rN6EMm6GkijvVbbaq_fFYazc3Y_-w0bjR05HBxMABgbr43QWSRn10VyAjkKdA5mS25w.984kfO7Xu_N4s4IizGa3rg";
+            const token = "eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6IjU1NjIwYjNmLTNkOWUtNGQ1MS1hNmMyLThjOTU0NWYwZWNhMCIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiI4N2IxZmNkNy1hODMwLTRlYjUtODgwOC1hMmU4ZmUwYjQyMTkiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzE0NTE5NCwiZXhwIjoxNzQzMTQ4Nzk0LCJpYXQiOjE3NDMxNDUxOTQsImp0aSI6IjIzM2RjODVhLTg3NmYtNDA3YS1hMWVkLTVkYzk5OTIwMTU3OCIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.Qu9n0uX-egIfGL05_h9c4KMtCUyRt7sh8HPUPkQlIvHSToqUUj6mBxJEZvUtp-f6q4NQtBYyXfzVlr0MVxzfIDm7X1BS2U8_zuxCzNRycUUIAQrCxlgDeSKi1Z9ITGtpbDe6dcnYpP-owT0hffgH362gsrvnXgeDUdMUDuaLqwd8nlMp5LGyBdn0ZmezUauq5euCQG5TJB_wsozc5uLCDDAyN63OWBfTkyT62-G3YpLUlWzWbZ2G6U20zJTJcZXOYn7OiPurt__qvGzqx1DREXlCHk3Bx9gEPWrsHcck0f-wvDcSIh6oAOVEyhWWgh3hJxxRe_Tuz7ooi7Jo_cFsEg";
 
             // 送信するJSONデータ
             const json_data = {
@@ -27,15 +27,10 @@
             fetch(url, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "Accept": "application/json"
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`  // Cognito トークンを Authorization ヘッダーにセット
                 },
-                body: new URLSearchParams({
-                    grant_type: "authorization_code",
-                    client_id: "5m669rof0n0mkph15n3fh3v4pe",
-                    code: "426cf23f-d8b0-44c6-83f9-bec4ff6328c7",
-                    redirect_uri: url
-                })
+                body: JSON.stringify(json_data)
             })
                 .then(response => response.json(json_data))
                 .then(data => console.log("Success:", data))
