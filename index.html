@@ -12,7 +12,7 @@
     <script>
         document.getElementById('sendData').addEventListener('click', () => {
             const url ='https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
-            const token = "eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6IjFjMzFmMmFmLWY2ZmYtNGQxYS05MmUzLTA1MzAzZjI2NTVmOSIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiI5ZTM4NzliZC1lNjNiLTQwMDgtODcxYS01YmRhYTJlMjVmNDkiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzEyNzkxNCwiZXhwIjoxNzQzMTMxNTE0LCJpYXQiOjE3NDMxMjc5MTQsImp0aSI6Ijc4Yzc3OTdiLTU1YzEtNDc4Zi1hYjBlLWJmZTRkMjcxNjE2MCIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.OtxIyUr1RciVCCY2DmwwD905MZVExOMg6VpjbdFELEqTf-rtzyaxqnWJ3qP7_puJj4Z0wBJHi_BCQmzy78R6kZ1GQkOLat-EtyFmyK1sZ0LoV6UfGsls6NCgqXLcnx_24lvaGV3jdMQfcOBZTbLiehkjtrtrFBph1-D-ERI5xwiocSsty2N--F5krE7rJuHRjrgvtV38CIdak2NLE28gy1bLVVBeNpXoZQzgW2msthNA_mz92OYZEjlXoPh472nXLMSusp8rJ_SRiA-VleA7fViCRJxBVYygEzPD47ciH-5gPTzVyZGxgYjYJmceP7-iYsQezQtYK1gHdso-uSnOAg";
+            const token = "Bearer eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6ImVhOTA5ZTk0LTI5OWMtNDRhZi04OTIxLWU1MTQ1ZjlhMDczYyIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiJhMzM1ODRjZC00NWE4LTRiZTEtYmNlZC1lYzc3YjYxZWU1NmMiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzEzNjEyMywiZXhwIjoxNzQzMTM5NzIzLCJpYXQiOjE3NDMxMzYxMjMsImp0aSI6IjU3NTJlZjdlLTI2ODctNDU3OS05MzY3LWIxYzJiZTg2ZDVmNyIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.NOvrhX1gIlUvYp1on7KNYiUMO8wXYJondrccLXjB2Hw4p0VitLNE9_5l0YCORCaOYp3nn560E83dkDbX0HutRTB5Jz5rWtyGpdD32Rfo4yXp3JYIKAG9AfLvspbFQeDCPTG_cVSNrLRH1EPdt7C60DesE7P8UYDvcpCGUVP8aI3Aw6CXrCmV0syPLIGS2PNc1n0jClbWxKzsXOkkI9ETjGvnxYE1E1c5MS32lz_yMzKN5ntUgX7TfAinFpPAx2Sj47GcnVw_R69Q-MG_BFeEu5zjFDJ4mFrzXxs-RjAhzSWJxXRS2d3g57jj4QiJgI2r2f4H-p9jVM0ca4QXobITZg";
 
             // 送信するJSONデータ
             const json_data = {
@@ -43,7 +43,7 @@
                         headers: {
                             "Access-Control-Allow-Origin": "*",
                             "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-                            "Access-Control-Allow-Headers": "Content-Type, Authorization"                            
+                            "Access-Control-Allow-Headers": "Content-Type, Authorization"                    
                         },
                         body: JSON.stringify({ message: "Request received" })
                     };
