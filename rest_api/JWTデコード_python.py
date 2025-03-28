@@ -10,7 +10,7 @@ keys_url = "https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_iCO7
 jwks = requests.get(keys_url).json()
 
 # トークンをデコードする
-token = "eyJraWQiOiI1dFJSWEZkRGJENEVSRjYrVzZDdkM5NHN4ZnRKSGpnb3hpMkk5ZGlZZGJBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTEuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTFfaUNPN2VuOVkwIiwidmVyc2lvbiI6MiwiY2xpZW50X2lkIjoiNW02Njlyb2YwbjBta3BoMTVuM2ZoM3Y0cGUiLCJvcmlnaW5fanRpIjoiN2M2MmIzYzAtZWViNi00YjQ0LWIxZTQtODMzOWU2NDRkNjgwIiwidG9rZW5fdXNlIjoiYWNjZXNzIiwic2NvcGUiOiJwaG9uZSBvcGVuaWQgZW1haWwiLCJhdXRoX3RpbWUiOjE3NDMwNjQwOTEsImV4cCI6MTc0MzA2NzY5MSwiaWF0IjoxNzQzMDY0MDkxLCJqdGkiOiJhNmI3Y2RkNi04ZWZhLTQ2ZDEtYjFjMC04YTY0OTc3YTg0OTMiLCJ1c2VybmFtZSI6InRlc3QtdXNlcjIifQ.cy8Aj4TIU8tf9fgvaVQxniO3VPgGU-2NitLOGG-kS6T-H-GPeFpr0bn9TQO22USsKVFVQbNEg4pk8Jo9_F0RXYDtvnEsj69VgvJIPYVZeKHPt5XdWlEspi3sySergsOGVaUqTiM6-Hic_DRIC7uV4sV_-6gKoVl02ULLNws_n7d1WI9J7BJgINYrKHvAEsZz5AWt7Xs8m4wvJWdkY8ybCaWSuq74hpkjjzxbVyoFd1pa9dz9N6sQCBh8amYI95E2DreReYFvb97bCRm3eILPiC5lQYFOpSdHsJ23V-5y8IlRLMIGkTcxqxKNCILOo0lxM0GuVGVLuui96pVOzQb6dg"
+token = "eyJraWQiOiI1dFJSWEZkRGJENEVSRjYrVzZDdkM5NHN4ZnRKSGpnb3hpMkk5ZGlZZGJBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTEuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTFfaUNPN2VuOVkwIiwiY2xpZW50X2lkIjoiNW02Njlyb2YwbjBta3BoMTVuM2ZoM3Y0cGUiLCJvcmlnaW5fanRpIjoiZWE5MDllOTQtMjk5Yy00NGFmLTg5MjEtZTUxNDVmOWEwNzNjIiwiZXZlbnRfaWQiOiJhMzM1ODRjZC00NWE4LTRiZTEtYmNlZC1lYzc3YjYxZWU1NmMiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6ImF3cy5jb2duaXRvLnNpZ25pbi51c2VyLmFkbWluIiwiYXV0aF90aW1lIjoxNzQzMTM2MTIzLCJleHAiOjE3NDMxMzk3MjMsImlhdCI6MTc0MzEzNjEyMywianRpIjoiY2I3NzhlYjEtYTMwZS00ZThjLTg3YmYtN2E1ZDk3NTFhY2M4IiwidXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIn0.rOCgPPi_TP4d6dwsEisuusyTnTEw8jdiJmQH5Ty8OacuaOOgFne5_eaGNToFcgEODIFFZbc59ILFM08UNH1KSOD8Ulgf51TUKksa5Mquw3rW_yqiLFnffIXeH_qGCX2bOTr1h3rzVPQa6ow-Ard62AGSX7W0PLxvFfV6W9rpsdKdHMF8Jsdzx3Q6UXQHnSkt6W6qsLMYmiTveOtKKf67VwV-g60k-MGzmY2UtU6NT-E1j8fNsSqyJYTDhvODCshZGAtgn4JxMxNDCA2KO1DWoFn_9P8DKEa6rVRidBDgcdHbe1n-v-a-mY6thF01tEcOHm4unVDciaMKp_aLlu8Gmw"
 
 # ヘッダーから 'kid' を取得
 headers = jwt.get_unverified_header(token)
@@ -39,7 +39,20 @@ print(decoded_token)
 
 
 # レスポンス
-# {'sub': '27a47a38-10b1-70e2-a25f-3aaa6ba40833', 'iss': 'https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_iCO7en9Y0', 'version': 2, 'client_id': '5m669rof0n0mkph15n3fh3v4pe', 'origin_jti': '7c62b3c0-eeb6-4b44-b1e4-8339e644d680', 'token_use': 'access', 'scope': 'phone openid email', 'auth_time': 1743064091, 'exp': 1743067691, 'iat': 1743064091, 'jti': 'a6b7cdd6-8efa-46d1-b1c0-8a64977a8493', 'username': 'test-user2'}
+# {
+#     'sub': '27a47a38-10b1-70e2-a25f-3aaa6ba40833',
+#     'iss': 'https://cognito-idp.ap-northeast-1.amazonaws.com/ap-northeast-1_iCO7en9Y0',
+#     'client_id': '5m669rof0n0mkph15n3fh3v4pe',
+#     'origin_jti': 'ea909e94-299c-44af-8921-e5145f9a073c',
+#     'event_id': 'a33584cd-45a8-4be1-bced-ec77b61ee56c',
+#     'token_use': 'access',
+#     'scope': 'aws.cognito.signin.user.admin',
+#     'auth_time': 1743136123,
+#     'exp': 1743139723,
+#     'iat': 1743136123, 
+#     'jti': 'cb778eb1-a30e-4e8c-87bf-7a5d9751acc8',
+#     'username': 'test-user2'
+# }
 
 
 # 実際のkey
