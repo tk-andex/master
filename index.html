@@ -12,11 +12,11 @@
     <script>
         document.getElementById('sendData').addEventListener('click', () => {
             const url ='https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
-            const token = "Bearer eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6ImVhOTA5ZTk0LTI5OWMtNDRhZi04OTIxLWU1MTQ1ZjlhMDczYyIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiJhMzM1ODRjZC00NWE4LTRiZTEtYmNlZC1lYzc3YjYxZWU1NmMiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzEzNjEyMywiZXhwIjoxNzQzMTM5NzIzLCJpYXQiOjE3NDMxMzYxMjMsImp0aSI6IjU3NTJlZjdlLTI2ODctNDU3OS05MzY3LWIxYzJiZTg2ZDVmNyIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.NOvrhX1gIlUvYp1on7KNYiUMO8wXYJondrccLXjB2Hw4p0VitLNE9_5l0YCORCaOYp3nn560E83dkDbX0HutRTB5Jz5rWtyGpdD32Rfo4yXp3JYIKAG9AfLvspbFQeDCPTG_cVSNrLRH1EPdt7C60DesE7P8UYDvcpCGUVP8aI3Aw6CXrCmV0syPLIGS2PNc1n0jClbWxKzsXOkkI9ETjGvnxYE1E1c5MS32lz_yMzKN5ntUgX7TfAinFpPAx2Sj47GcnVw_R69Q-MG_BFeEu5zjFDJ4mFrzXxs-RjAhzSWJxXRS2d3g57jj4QiJgI2r2f4H-p9jVM0ca4QXobITZg";
+            const token = "eyJjdHkiOiJKV1QiLCJlbmMiOiJBMjU2R0NNIiwiYWxnIjoiUlNBLU9BRVAifQ.MZeSljyYa8PAEN7AL7nndltnhrJpZUPjHmTS0U9b184Zjp_6UPdTGgllq-c2gvIE_Y8kMFmjLmP0ZrebzkbvQzhcakgogsZrNUR2c7ZIE58pHZKMe2_eCf-QVERAm5s8Lg1G5JacKOSgmngRcBUn8Vf8yOpCWVxbWZc_322HfgJwfhOvDEWfndVS3kfxwWTvNm6PQKYl-pTaF0P2cZNCoIHiSzcjl3Qh95rZyn2Mu2R2BWV2_qvVoT1CbSs6C_iv6fVgBdREwwwnUuVtKKVSciZLak9lO-1k3_2wAiN4lwzqMfJN1gEPw3ifUVi6JtrZEN4xv8MIKdUReyxzBpG3mg.KgpoOjdWXODdsICh.zL97moIZPygF1-0szseKkTLFuSQ0Z3FLlWxQorro4IC4cWMPB7YjDf15sLhmI913IDndEhqfZQJobhIbllpDrOfTPMCI-7-nIxkgk79xQcTuRrEInjAf-RJIzH-ZFbWy4X5CASFSJ1WHNTBICLtZvjAZkPFTiNC-bZYTn74y_PJOixcHV7nJavySEcSio6FfL7rA6DoZWtTO7kDtNVF_W1IKN92KrbvcpFyfHB3i7LqGw7ifcmVns0J4Uu92x-MJf0HErAgbVFRgQtZ2j03KBwGI8FMuJTd4pWh4Z7IJRMhdJSrCPaxVu8Z-kaNj9_6KCSoaoaW81fjr4xcKp_3scI1vzUsOV-CX0YGIcsxSJ_FaWRedsq5p6IJeqKf1cUL5dzEYE3ByRtUwg8csy8f-a4dJUyj5qxzWIbgQlED64vQYuemanf5t866Lg8Mo_5__p3nyCSbh4_2fySSEeB3m5TEEdqMLEJGN0o3JgqJgEZapjoXP6Ub2Bprb3-R1MJkz9aHNMDp2-rE1iwUNmzHNSVmFI0OtcGVd_1kml4v6DV_H8tgpWAhQAP0QyV0mFrZY8rb-A8ABCrE1mg3OrDybXca3hQKD3tNNEE1sMXgtgtebX0R49dmWDAUzw28Ns_2C54fp42qjOfN2HzzuQa7ZHSD2DxjpVzSrI7pTyfe2CtiqmEilxbqtbpWDuMGpNxAXmHmMiCi1VfCIUHLwbKvBby6jbsPl88ZdAvAm2yEucrLo9UfWXQ-HfdMQ3iEgDYl7NlLEeM41STc6DdojGzI7NID64NclbaE1iI9flRAHRmvY2lfg2xzdr7RpIpoqWgHkaOOkk2f3OM5gYOEpzGU4DczU04UW_m8yvRRe2Z1zKJS8TMNVr3BsStrwlOpUng0Sp4i8tpZyPLojQd1xDbHaFMZ4JFrFlYO0VjmH253MEVCYrGO-g6ce4wjJ9iiVHFwCq75e4pUmKZ12gxDWxXDAJIAToK1BOKHR3YoMv0ObCZpiX2ZQEPPV05wvD1zNJYsZktlWso6HFLvK0aG81DYbgeJMSm90w2lLsth4YswYGnonqDaUQ2x1bVO3yfwUXpXQSU-PbM0Z4rjOQwpRpI_1zB3E6Bje4y3GFh0y9xCr2J3uWTdKvYRlrB7LLTQAI2ygfQxQ5A5g0uBQCHuwZI3EZvAPQUgg7K1FRaK_vDbPSkFWMAGtJ0SOLYYbsPVApORkkfAIT34qSroh_mEYT-ZCb5gXJj-w5s8rN6EMm6GkijvVbbaq_fFYazc3Y_-w0bjR05HBxMABgbr43QWSRn10VyAjkKdA5mS25w.984kfO7Xu_N4s4IizGa3rg";
 
             // 送信するJSONデータ
             const json_data = {
-                "operation": "POST",
+                "httpMethod": "POST",
                 "data": {
                     "en": "Hello",
                     "jp": "こんにちは"
@@ -24,39 +24,44 @@
             };
 
             // `fetch` を使ってPOSTリクエストを送信
-            try {
-                    fetch(url, {
-                        method: "POST",
-                        headers: {
-                            "Content-Type": "application/json",
-                            "Authorization": `Bearer ${token}`
-                        },
-                        body: JSON.stringify(json_data)
-                    })
-                    .then(response => response.json())
-                    .then(data => console.log("Success:", data))
-                    .catch(error => console.error("Error:", error));
+            fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "Accept": "application/json"
+                },
+                body: new URLSearchParams({
+                    grant_type: "authorization_code",
+                    client_id: "5m669rof0n0mkph15n3fh3v4pe",
+                    code: "426cf23f-d8b0-44c6-83f9-bec4ff6328c7",
+                    redirect_uri: url
+                })
+            })
+                .then(response => response.json(json_data))
+                .then(data => console.log("Success:", data))
+                .catch(error => console.error("Error:", error))
+
                 
                 // CORS対策
-                return {
-                        statusCode: 200,
-                        headers: {
-                            "Access-Control-Allow-Origin": "*",
-                            "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-                            "Access-Control-Allow-Headers": "Content-Type, Authorization"                    
-                        },
-                        body: JSON.stringify({ message: "Request received" })
-                    };
+            //     return {
+            //             statusCode: 200,
+            //             headers: {
+            //                 "Access-Control-Allow-Origin": "*",
+            //                 "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+            //                 "Access-Control-Allow-Headers": "Content-Type, Authorization"                    
+            //             },
+            //             body: JSON.stringify({ message: "Request received" })
+            //         };
 
-                if(!response.ok) {
-                    throw new Error('HTTP error! Status: ${response.status}');
-                }
+            //     if(!response.ok) {
+            //         throw new Error('HTTP error! Status: ${response.status}');
+            //     }
 
-                const result = response.json();
-                console.log('Success:', result);
-            } catch(error) {
-                console.error('Error:', error);
-            }
+            //     const result = response.json();
+            //     console.log('Success:', result);
+            // } catch(error) {
+            //     console.error('Error:', error);
+            // }
         });
     </script>
 </body>
