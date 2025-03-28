@@ -10,38 +10,10 @@
     <button id="sendData">送信</button>
 
     <script>
-        // import { API } from 'aws-amplify';
-
-        // const postData = async () => {
-        //     const path = 'https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';  // API Gatewayのエンドポイントパス
-        //     const myInit = {  
-        //         body: { // POSTリクエストのデータ
-        //             key1: 'value1',
-        //             key2: 'value2'
-        //         },
-        //         headers: { 
-        //             Authorization: `Bearer ${yourJWTToken}`,  // 必要なヘッダー
-        //         }
-        //     };
-
-        //     try {
-        //         const response = await API.post('yourApiName', path, myInit);
-        //         console.log('Response:', response);
-        //     } catch (error) {
-        //         console.error('Error:', error);
-        //     }
-        // };
-
-        // postData();
-
-
-
-
-
-
-
-
         document.getElementById('sendData').addEventListener('click', () => {
+            const url ='https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
+            const token = "eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6IjFjMzFmMmFmLWY2ZmYtNGQxYS05MmUzLTA1MzAzZjI2NTVmOSIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiI5ZTM4NzliZC1lNjNiLTQwMDgtODcxYS01YmRhYTJlMjVmNDkiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzEyNzkxNCwiZXhwIjoxNzQzMTMxNTE0LCJpYXQiOjE3NDMxMjc5MTQsImp0aSI6Ijc4Yzc3OTdiLTU1YzEtNDc4Zi1hYjBlLWJmZTRkMjcxNjE2MCIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.OtxIyUr1RciVCCY2DmwwD905MZVExOMg6VpjbdFELEqTf-rtzyaxqnWJ3qP7_puJj4Z0wBJHi_BCQmzy78R6kZ1GQkOLat-EtyFmyK1sZ0LoV6UfGsls6NCgqXLcnx_24lvaGV3jdMQfcOBZTbLiehkjtrtrFBph1-D-ERI5xwiocSsty2N--F5krE7rJuHRjrgvtV38CIdak2NLE28gy1bLVVBeNpXoZQzgW2msthNA_mz92OYZEjlXoPh472nXLMSusp8rJ_SRiA-VleA7fViCRJxBVYygEzPD47ciH-5gPTzVyZGxgYjYJmceP7-iYsQezQtYK1gHdso-uSnOAg";
+
             // 送信するJSONデータ
             const json_data = {
                 "operation": "POST",
@@ -52,18 +24,39 @@
             };
 
             // `fetch` を使ってPOSTリクエストを送信
-            fetch('https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API', {  // 実際のエンドポイントに置き換える
-                method: 'POST',
-                credentials: 'include', // クッキーやセッション情報を送る
-                headers: {
-                    // 'Authorization': 'Bearer eyJraWQiOiI1dFJSWEZkRGJENEVSRjYrVzZDdkM5NHN4ZnRKSGpnb3hpMkk5ZGlZZGJBPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJpc3MiOiJodHRwczpcL1wvY29nbml0by1pZHAuYXAtbm9ydGhlYXN0LTEuYW1hem9uYXdzLmNvbVwvYXAtbm9ydGhlYXN0LTFfaUNPN2VuOVkwIiwidmVyc2lvbiI6MiwiY2xpZW50X2lkIjoiNW02Njlyb2YwbjBta3BoMTVuM2ZoM3Y0cGUiLCJvcmlnaW5fanRpIjoiYWY0NGIzNzUtNjM1Yy00ZGFkLWFjOGEtZDU5NzJmODgwMjBlIiwiZXZlbnRfaWQiOiIwOWE2NzEyNi0yNzkwLTRhZWItODMzOC1jMWQwOGU2MTU1YzEiLCJ0b2tlbl91c2UiOiJhY2Nlc3MiLCJzY29wZSI6InBob25lIG9wZW5pZCBlbWFpbCIsImF1dGhfdGltZSI6MTc0MzA2NTcxMSwiZXhwIjoxNzQzMDY5MzExLCJpYXQiOjE3NDMwNjU3MTEsImp0aSI6ImJlNDg5YjJiLTQ4YzQtNGNhNi1iNjU1LWYwZDExZjViZjAwNSIsInVzZXJuYW1lIjoidGVzdC11c2VyMiJ9.oGWjv5vKiipvXQEHtoT97UmNCLoRd_c9pMeKcyIq4qIT29ftOrN7LeNtNOTc-DOnFTYWL9eI9VvxvriqvSM_f8YxLs-vWUH1hAqri9cgocH5WH2M6eIxUq_UaBecr2_6SHMRMqOLQ3KhdqN-ythElvEn-H9wFVwriJKch8Cbzse6ZXz3M8byzJzd0T5lI7YjEae4G-N4efSNhN6ZeL0JbehHoCVMuMhWDJ4rFRetCVl9wQQtDK8Rx6lUusUO1ziash2HGGylns9je63y2zIhQyYaUsIOWufopav8Azber7JxN3haWBLQbzvFMqaMAnQChmZMQ-e_jjiJGYlLaXc0YA',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(json_data)
-            })
-            .then(response => response.json())  // JSON形式でレスポンスを取得
-            .then(result => console.log('成功:', result))
-            .catch(error => console.error('エラー:', error));
+            try {
+                    fetch(url, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(json_data)
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log("Success:", data))
+                    .catch(error => console.error("Error:", error));
+                
+                // CORS対策
+                return {
+                        statusCode: 200,
+                        headers: {
+                            "Access-Control-Allow-Origin": "*",
+                            "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
+                            "Access-Control-Allow-Headers": "Content-Type, Authorization"                            
+                        },
+                        body: JSON.stringify({ message: "Request received" })
+                    };
+
+                if(!response.ok) {
+                    throw new Error('HTTP error! Status: ${response.status}');
+                }
+
+                const result = response.json();
+                console.log('Success:', result);
+            } catch(error) {
+                console.error('Error:', error);
+            }
         });
     </script>
 </body>
