@@ -11,7 +11,7 @@
 
     <script>
         document.getElementById('sendData').addEventListener('click', () => {
-            const url ='https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
+            const url = 'https://doyv3lk5tj.execute-api.ap-northeast-1.amazonaws.com/lambda_function_API';
             const token = "eyJraWQiOiI4dDVvcEc0UVdRaERLZUN4cFwvMlh0Y1M2b2dUOHdvNDdFS0hBdWN3Wm0rND0iLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiIyN2E0N2EzOC0xMGIxLTcwZTItYTI1Zi0zYWFhNmJhNDA4MzMiLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiaXNzIjoiaHR0cHM6XC9cL2NvZ25pdG8taWRwLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb21cL2FwLW5vcnRoZWFzdC0xX2lDTzdlbjlZMCIsImNvZ25pdG86dXNlcm5hbWUiOiJ0ZXN0LXVzZXIyIiwib3JpZ2luX2p0aSI6IjU1NjIwYjNmLTNkOWUtNGQ1MS1hNmMyLThjOTU0NWYwZWNhMCIsImF1ZCI6IjVtNjY5cm9mMG4wbWtwaDE1bjNmaDN2NHBlIiwiZXZlbnRfaWQiOiI4N2IxZmNkNy1hODMwLTRlYjUtODgwOC1hMmU4ZmUwYjQyMTkiLCJ0b2tlbl91c2UiOiJpZCIsImF1dGhfdGltZSI6MTc0MzE0NTE5NCwiZXhwIjoxNzQzMTQ4Nzk0LCJpYXQiOjE3NDMxNDUxOTQsImp0aSI6IjIzM2RjODVhLTg3NmYtNDA3YS1hMWVkLTVkYzk5OTIwMTU3OCIsImVtYWlsIjoiay50c3VrdWRhQGFuZC1leC5jby5qcCJ9.Qu9n0uX-egIfGL05_h9c4KMtCUyRt7sh8HPUPkQlIvHSToqUUj6mBxJEZvUtp-f6q4NQtBYyXfzVlr0MVxzfIDm7X1BS2U8_zuxCzNRycUUIAQrCxlgDeSKi1Z9ITGtpbDe6dcnYpP-owT0hffgH362gsrvnXgeDUdMUDuaLqwd8nlMp5LGyBdn0ZmezUauq5euCQG5TJB_wsozc5uLCDDAyN63OWBfTkyT62-G3YpLUlWzWbZ2G6U20zJTJcZXOYn7OiPurt__qvGzqx1DREXlCHk3Bx9gEPWrsHcck0f-wvDcSIh6oAOVEyhWWgh3hJxxRe_Tuz7ooi7Jo_cFsEg";
 
             // 送信するJSONデータ
@@ -30,33 +30,12 @@
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${token}`  // Cognito トークンを Authorization ヘッダーにセット
                 },
-                body: JSON.stringify(json_data)
+                body: JSON.stringify(json_data),
+                mode: 'cors'  // CORS を明示的に指定
             })
-                .then(response => response.json(json_data))
-                .then(data => console.log("Success:", data))
-                .catch(error => console.error("Error:", error))
-
-                
-                // CORS対策
-            //     return {
-            //             statusCode: 200,
-            //             headers: {
-            //                 "Access-Control-Allow-Origin": "*",
-            //                 "Access-Control-Allow-Methods": "POST, GET, OPTIONS",
-            //                 "Access-Control-Allow-Headers": "Content-Type, Authorization"                    
-            //             },
-            //             body: JSON.stringify({ message: "Request received" })
-            //         };
-
-            //     if(!response.ok) {
-            //         throw new Error('HTTP error! Status: ${response.status}');
-            //     }
-
-            //     const result = response.json();
-            //     console.log('Success:', result);
-            // } catch(error) {
-            //     console.error('Error:', error);
-            // }
+                .then(response => {return response.json();})
+                .then(data => {console.log("Success:", data);})
+                .catch(error => {console.error("Error:", error);})
         });
     </script>
 </body>
