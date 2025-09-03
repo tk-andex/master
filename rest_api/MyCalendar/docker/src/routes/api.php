@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KintoneController;
+use App\Http\Controllers\KintoneWebhookController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +17,12 @@ use App\Http\Controllers\KintoneController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+Route::get('/user', function (Request $request) {
     return $request->user();
 });
 
 Route::get('/kintone/records', [KintoneController::class, 'index']);
+Route::get('/user', [UserController::class, 'index']);
+Route::post('/kintone/records', [KintoneController::class, 'store']);
+Route::post('/kintone/webhook', [KintoneWebhookController::class, 'handle']);
+Route::post('/user', [UserController::class, 'store']);

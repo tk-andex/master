@@ -32,9 +32,17 @@ return [
     ],
 
     'kintone' => [
-        'api_token' => env('KINTONE_API_TOKEN'),
         'domain' => env('KINTONE_DOMAIN'),
-        'app_id' => env('KINTONE_APP_ID'),
+        'apps' => [
+            'app1' => [
+                'app_id' => env('KINTONE_APP_ID1'),
+                'api_token' => env('KINTONE_API_TOKEN1'),
+            ],
+            'app2' => [
+                'app_id' => env('KINTONE_APP_ID2'),
+                'api_token' => env('KINTONE_API_TOKEN2'),
+            ],
+        ],
     ],
 
 
