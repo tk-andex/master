@@ -20,7 +20,7 @@ class KintoneService
 
         if ($appKey) {
             $appConfig = config("services.kintone.apps.{$appKey}");
-            if (!$appConfig) {
+            if (!$appConfig || !is_array($appConfig)) {
                 throw new \InvalidArgumentException("Kintone app config for '{$appKey}' not found.");
             }
             $this->appId = $appConfig['app_id'];
@@ -34,27 +34,50 @@ class KintoneService
 
     /**
      * 最新レコード取得
+     * @param string|null $query Kintone query (例: 'user_id = "xxx" limit 1')
+     * @param array $fields 取得するフィールドの配列（空: 全フィールド）
+     * @return array レスポンスの配列。失敗時は ['records'=>[]] を返す。* 
      */
-    public function getRecords()
+    public function getRecords(?string $query = null, array $fields = []): array
     {
         $url = "https://{$this->domain}/k/v1/records.json";
 
-        $response = Http::withHeaders([
-            'X-Cybozu-API-Token' => $this->apiToken,
-        ])->get($url, [
-                    'app' => (int) $this->appId,
-                ]);
-
-        if ($response->successful()) {
-            return $response->json();
+        $params = [
+            'app' => (string) $this->appId,
+        ];
+        if ($query !== null) {
+            $params['query'] = $query;
+        }
+        if (!empty($fields)) {
+            $params['fields'] = $fields;
         }
 
-        Log::error('Kintone getRecords failed', [
-            'status' => $response->status(),
-            'body' => $response->body(),
-        ]);
+        try {
+            $response = Http::withHeaders([
+                'X-Cybozu-API-Token' => $this->apiToken,
+            ])->get($url, $params);
 
-        return null;
+            if ($response->successful()) {
+                return $response->json();
+            }
+
+            Log::error('Kintone getRecords failed', [
+                'status' => $response->status(),
+                'body' => $response->body(),
+                'params' => $params,
+            ]);
+
+            Log::debug('kintone resp sample', $response);
+
+        } catch (\Throwable $e) {
+            Log::error('Kintone getRecords exception', [
+                'message' => $e->getMessage(),
+                'params' => $params,
+            ]);
+        }
+
+        // 呼び出し側が ['records'] を期待するため、失敗時は空配列構造を返す
+        return ['records' => []];
     }
 
     /**
@@ -82,41 +105,6 @@ class KintoneService
         }
 
         Log::error('Kintone addRecord failed', [
-            'status' => $response->status(),
-            'body' => $response->body(),
-        ]);
-
-        return null;
-    }
-
-    /**
-     * app2のkintoneからemployeeの値を取得する例メソッド
-     * @param string $employeeKey 検索キー（例: 社員コードなど）
-     * @return string|null
-     */
-    public function getEmployeeValueFromApp1(string $employeeKey)
-    {
-        // app1(ユーザー)用のインスタンスを作成（app1の設定を使う）
-        $app1 = new self('app1');
-
-        $url = "https://{$app1->domain}/k/v1/records.json";
-
-        $response = Http::withHeaders([
-            'X-Cybozu-API-Token' => $app1->apiToken,
-        ])->get($url, [
-                    'app' => (int) $app1->appId,
-                    'query' => "employee_code = \"{$employeeKey}\" limit 1", // employee_codeはapp2の検索フィールド例
-                ]);
-
-        if ($response->successful()) {
-            $records = $response->json()['records'] ?? [];
-            if (count($records) > 0) {
-                return $records[0]['employee_name']['value'] ?? null; // employee_nameは取得したいフィールド名例
-            }
-        }
-
-        Log::error('Failed to fetch employee from app2', [
-            'employeeKey' => $employeeKey,
             'status' => $response->status(),
             'body' => $response->body(),
         ]);

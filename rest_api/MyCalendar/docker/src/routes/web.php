@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\KintoneWebhookController;
 use App\Http\Controllers\UserController;
+
+use App\Http\Controllers\KintoneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/user', [UserController::class, 'showPage']);  
+Route::get('/employee/{userId}', [KintoneController::class, 'showEmployee']);
+Route::get('/users', [UserController::class, 'index'])->name('users.index');
+Route::get('/user', [UserController::class, 'showPage']);
+Route::post('/users/sync', [UserController::class, 'syncApi'])->name('users.sync');

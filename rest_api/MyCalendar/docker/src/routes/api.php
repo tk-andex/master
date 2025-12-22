@@ -3,7 +3,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KintoneController;
-use App\Http\Controllers\KintoneWebhookController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -22,7 +21,7 @@ Route::get('/user', function (Request $request) {
 });
 
 Route::get('/kintone/records', [KintoneController::class, 'index']);
+// Route::get('/kintone/records', [KintoneController::class, 'create']);
 Route::get('/user', [UserController::class, 'index']);
 Route::post('/kintone/records', [KintoneController::class, 'store']);
-Route::post('/kintone/webhook', [KintoneWebhookController::class, 'handle']);
 Route::post('/user', [UserController::class, 'store']);
