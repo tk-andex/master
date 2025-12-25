@@ -1,0 +1,55 @@
+services:
+  app:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: kintone_linkage_app
+    container_name: kintone_linkage_app
+    working_dir: /var/www
+    volumes:
+      - ./backend:/var/www
+      - ./backend/vendor:/var/www/vendor
+      - ./backend/node_modules:/var/www/node_modules
+    environment:
+      - COMPOSER_ALLOW_SUPERUSER=1
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:1.25-alpine
+    container_name: kintone_linkage_nginx
+    ports:
+      - "8443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/certs:/etc/nginx/certs:ro
+      - ./backend:/var/www:ro
+    depends_on:
+      - app
+      - node
+
+  db:
+    image: postgres:15
+    container_name: kintone_linkage_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: kintone_linkage
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  node:
+    image: node:18
+    container_name: kintone_linkage_node
+    working_dir: /var/www/frontend
+    volumes:
+      - ./frontend:/var/www/frontend
+      - /var/www/frontend/node_modules
+    command: ["sh", "-c", "yarn install && yarn start --host 0.0.0.0"]
+    depends_on:
+      - app
+    ports:
+      - "3000:3000"
+
+volumes:
+  db_data:

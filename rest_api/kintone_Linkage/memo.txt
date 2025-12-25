@@ -1,0 +1,42 @@
+★cloudflared
+powershell を開いて以下のコードを打つ
+
+& 'C:\tools\cloudflared\cloudflared.exe' tunnel --url http://localhost:8080
+
+表示されたURLを使用する
+
+
+★ngrok
+※--domainで固定(有料)
+ngrok http --domain=http://localhost:8080
+
+ngrok http http://localhost:8080
+
+
+
+★psql
+コンテナ内から TCP 接続を強制 ※パスワード:test
+docker exec -it laravel_db psql -h 127.0.0.1 -U laravel_user -W -d postgres
+
+★
+php artisan cache:clear
+php artisan config:clear
+php artisan route:clear
+php artisan view:clear
+php artisan config:cache
+
+composer dump-auto
+
+
+
+
+
+
+★コマンドプロンプトでカレンダー従業員名を更新するコード
+curl -X PUT "https://and-ex.cybozu.com/k/v1/record.json" ^
+ -H "X-Cybozu-API-Token: 372AZdLkPgcdOXHeR74sijCbIN3IOSSFdoKe5qWA" ^
+ -H "Content-Type: application/json" ^
+ -d "{\"app\":722,\"id\":28,\"record\":{\"employee_key\":{\"value\":\"APItestTARO\"}}}"
+
+
+
